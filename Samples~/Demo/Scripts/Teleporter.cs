@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using KinematicCharacterController.Examples;
+using LFramework.KCC.Examples;
 
-namespace KinematicCharacterController.Examples
+namespace LFramework.KCC.Examples
 {
     public class Teleporter : MonoBehaviour
     {

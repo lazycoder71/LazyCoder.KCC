@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using KinematicCharacterController;
-using KinematicCharacterController.Examples;
+
+using LFramework.KCC.Examples;
 using System;
 
-namespace KinematicCharacterController.Examples
+namespace LFramework.KCC.Examples
 {
-    public class PlanetManager : MonoBehaviour, IMoverController
+    public class PlanetManager : MonoBehaviour, IKCCControllerMover
     {
-        public PhysicsMover PlanetMover;
+        public KCCMover PlanetMover;
         public SphereCollider GravityField;
         public float GravityStrength = 10;
         public Vector3 OrbitAxis = Vector3.forward;

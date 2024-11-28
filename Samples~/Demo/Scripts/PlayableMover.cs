@@ -1,15 +1,15 @@
-﻿using KinematicCharacterController;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Playables;
 
-namespace KinematicCharacterController.Examples
+namespace LFramework.KCC.Examples
 {
-    public class PlayableMover : MonoBehaviour, IMoverController
+    public class PlayableMover : MonoBehaviour, IKCCControllerMover
     {
-        public PhysicsMover Mover;
+        public KCCMover Mover;
 
         public float Speed = 1f;
         public PlayableDirector Director;

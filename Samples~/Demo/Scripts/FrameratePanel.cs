@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-namespace KinematicCharacterController.Examples
+namespace LFramework.KCC.Examples
 {
     public class FrameratePanel : MonoBehaviour
     {
@@ -112,7 +112,7 @@ namespace KinematicCharacterController.Examples
 
 #if UNITY_EDITOR
     [CustomEditor(typeof(FrameratePanel))]
-    public class FrameratePanelEditor : Editor
+    public class FrameratePanelEditor : UnityEditor.Editor
     {
         private const int MaxFPS = 999;
 

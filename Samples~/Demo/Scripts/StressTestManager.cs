@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace KinematicCharacterController.Examples
+namespace LFramework.KCC.Examples
 {
     public class StressTestManager : MonoBehaviour
     {
@@ -21,25 +21,25 @@ namespace KinematicCharacterController.Examples
 
         private void Start()
         {
-            KinematicCharacterSystem.EnsureCreation();
+            KCCSystem.EnsureCreation();
             CountField.text = SpawnCount.ToString();
             UpdateOnImages();
 
-            KinematicCharacterSystem.Settings.AutoSimulation = false;
-            KinematicCharacterSystem.Settings.Interpolate = false;
+            KCCSystem.Settings.AutoSimulation = false;
+            KCCSystem.Settings.Interpolate = false;
         }
 
         private void Update()
         {
 
-            KinematicCharacterSystem.Simulate(Time.deltaTime, KinematicCharacterSystem.CharacterMotors, KinematicCharacterSystem.PhysicsMovers);
+            KCCSystem.Simulate(Time.deltaTime, KCCSystem.CharacterMotors, KCCSystem.PhysicsMovers);
         }
 
         private void UpdateOnImages()
         {
             RenderOn.enabled = Camera.cullingMask == -1;
             SimOn.enabled = Physics.autoSimulation;
-            InterpOn.enabled = KinematicCharacterSystem.Settings.Interpolate;
+            InterpOn.enabled = KCCSystem.Settings.Interpolate;
         }
 
         public void SetSpawnCount(string count)
@@ -71,7 +71,7 @@ namespace KinematicCharacterController.Examples
 
         public void ToggleInterpolation()
         {
-            KinematicCharacterSystem.Settings.Interpolate = !KinematicCharacterSystem.Settings.Interpolate;
+            KCCSystem.Settings.Interpolate = !KCCSystem.Settings.Interpolate;
             UpdateOnImages();
         }
 

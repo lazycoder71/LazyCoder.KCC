@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using KinematicCharacterController;
+using LFramework.KCC;
 
 public class PauseStateHandler
 {
@@ -14,7 +14,7 @@ public class PauseStateHandler
 
     private static void HandlePauseStateChange(PauseState state)
     {
-        foreach(KinematicCharacterMotor motor in KinematicCharacterSystem.CharacterMotors)
+        foreach(KCCMotor motor in KCCSystem.CharacterMotors)
         {
             motor.SetPositionAndRotation(motor.Transform.position, motor.Transform.rotation, true);
         }
