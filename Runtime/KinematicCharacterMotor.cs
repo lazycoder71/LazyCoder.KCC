@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KinematicCharacterController
+namespace LFramework.KCC
 {
     public enum RigidbodyInteractionType
     {

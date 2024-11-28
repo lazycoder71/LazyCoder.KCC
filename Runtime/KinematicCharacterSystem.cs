@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace KinematicCharacterController
+namespace LFramework.KCC
 {
     /// <summary>
     /// The system that manages the simulation of KinematicCharacterMotor and PhysicsMover

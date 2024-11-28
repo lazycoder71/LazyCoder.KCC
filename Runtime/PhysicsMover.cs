@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KinematicCharacterController
+namespace LFramework.KCC
 {
     /// <summary>
     /// Represents the entire state of a PhysicsMover that is pertinent for simulation.

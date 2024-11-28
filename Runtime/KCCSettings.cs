@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KinematicCharacterController
+namespace LFramework.KCC
 {
     [CreateAssetMenu]
     public class KCCSettings : ScriptableObject
