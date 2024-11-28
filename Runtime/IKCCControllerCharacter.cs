@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LFramework.KCC
 {
-    public interface ICharacterController
+    public interface IKCCControllerCharacter
     {
         /// <summary>
         /// This is called when the motor wants to know what its rotation should be right now

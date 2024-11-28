@@ -1,7 +1,5 @@
 ﻿using Sirenix.OdinInspector;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LFramework.KCC
@@ -24,7 +22,7 @@ namespace LFramework.KCC
     /// proper interaction with characters
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class PhysicsMover : MonoBehaviour
+    public class KCCMover : MonoBehaviour
     {
         /// <summary>
         /// The mover's Rigidbody
@@ -41,7 +39,7 @@ namespace LFramework.KCC
         /// Index of this motor in KinematicCharacterSystem arrays
         /// </summary>
         [NonSerialized]
-        public IMoverController MoverController;
+        public IKCCControllerMover MoverController;
         /// <summary>
         /// Remembers latest position in interpolation
         /// </summary>
@@ -157,13 +155,13 @@ namespace LFramework.KCC
 
         private void OnEnable()
         {
-            KinematicCharacterSystem.EnsureCreation();
-            KinematicCharacterSystem.RegisterPhysicsMover(this);
+            KCCSystem.EnsureCreation();
+            KCCSystem.RegisterPhysicsMover(this);
         }
 
         private void OnDisable()
         {
-            KinematicCharacterSystem.UnregisterPhysicsMover(this);
+            KCCSystem.UnregisterPhysicsMover(this);
         }
 
         private void Awake()

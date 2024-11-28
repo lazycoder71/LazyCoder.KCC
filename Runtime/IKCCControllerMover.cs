@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LFramework.KCC
 {
-    public interface IMoverController
+    public interface IKCCControllerMover
     {
         /// <summary>
         /// This is called to let you tell the PhysicsMover where it should be right now

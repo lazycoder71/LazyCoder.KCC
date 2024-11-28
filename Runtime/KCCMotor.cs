@@ -154,7 +154,7 @@ namespace LFramework.KCC
     /// Component that manages character collisions and movement solving
     /// </summary>
     [RequireComponent(typeof(CapsuleCollider))]
-    public class KinematicCharacterMotor : MonoBehaviour
+    public class KCCMotor : MonoBehaviour
     {
 #pragma warning disable 0414
         [Header("Components")]
@@ -424,7 +424,7 @@ namespace LFramework.KCC
         /// The motor's assigned controller
         /// </summary>
         [NonSerialized]
-        public ICharacterController CharacterController;
+        public IKCCControllerCharacter CharacterController;
         /// <summary>
         /// Did the motor's last swept collision detection find a ground?
         /// </summary>
@@ -532,13 +532,13 @@ namespace LFramework.KCC
 
         private void OnEnable()
         {
-            KinematicCharacterSystem.EnsureCreation();
-            KinematicCharacterSystem.RegisterCharacterMotor(this);
+            KCCSystem.EnsureCreation();
+            KCCSystem.RegisterCharacterMotor(this);
         }
 
         private void OnDisable()
         {
-            KinematicCharacterSystem.UnregisterCharacterMotor(this);
+            KCCSystem.UnregisterCharacterMotor(this);
         }
 
         private void Reset()
@@ -1640,7 +1640,7 @@ namespace LFramework.KCC
         {
             if (_rigidbodyProjectionHitCount < _internalRigidbodyProjectionHits.Length)
             {
-                if (!hitRigidbody.GetComponent<KinematicCharacterMotor>())
+                if (!hitRigidbody.GetComponent<KCCMotor>())
                 {
                     RigidbodyProjectionHit rph = new RigidbodyProjectionHit();
                     rph.Rigidbody = hitRigidbody;
@@ -1852,7 +1852,7 @@ namespace LFramework.KCC
                         float characterMass = SimulatedCharacterMass;
                         Vector3 characterVelocity = bodyHit.HitVelocity;
 
-                        KinematicCharacterMotor hitCharacterMotor = bodyHit.Rigidbody.GetComponent<KinematicCharacterMotor>();
+                        KCCMotor hitCharacterMotor = bodyHit.Rigidbody.GetComponent<KCCMotor>();
                         bool hitBodyIsCharacter = hitCharacterMotor != null;
                         bool hitBodyIsDynamic = !bodyHit.Rigidbody.isKinematic;
                         float hitBodyMass = bodyHit.Rigidbody.mass;
@@ -1866,7 +1866,7 @@ namespace LFramework.KCC
                         }
                         else if (!hitBodyIsDynamic)
                         {
-                            PhysicsMover physicsMover = bodyHit.Rigidbody.GetComponent<PhysicsMover>();
+                            KCCMover physicsMover = bodyHit.Rigidbody.GetComponent<KCCMover>();
                             if(physicsMover)
                             {
                                 hitBodyVelocity = physicsMover.Velocity;
@@ -2294,7 +2294,7 @@ namespace LFramework.KCC
                 angularVelocity = interactiveRigidbody.angularVelocity;
                 if(interactiveRigidbody.isKinematic)
                 {
-                    PhysicsMover physicsMover = interactiveRigidbody.GetComponent<PhysicsMover>();
+                    KCCMover physicsMover = interactiveRigidbody.GetComponent<KCCMover>();
                     if (physicsMover)
                     {
                         linearVelocity = physicsMover.Velocity;
@@ -2328,7 +2328,7 @@ namespace LFramework.KCC
             Rigidbody colliderAttachedRigidbody = onCollider.attachedRigidbody;
             if (colliderAttachedRigidbody)
             {
-                if (colliderAttachedRigidbody.gameObject.GetComponent<PhysicsMover>())
+                if (colliderAttachedRigidbody.gameObject.GetComponent<KCCMover>())
                 {
                     return colliderAttachedRigidbody;
                 }
