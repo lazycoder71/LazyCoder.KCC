@@ -1,0 +1,31 @@
+{
+  "name": "lazycoder.unity.kcc",
+  "displayName": "LazyCoder Kinematic Character Controller",
+  "version": "1.0.0",
+  "unity": "6000.0.36f1",
+  "description": "Kinematic Character Controller for Unity.",
+  "keywords": [
+    "kinematic",
+    "character controller",
+    "unity"
+  ],
+  "bugs": {
+    "url": "https://github.com/lazycoder71/LFramework.KCC/issues",
+    "email": "lamnd.bounce@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lazycoder71/LFramework.KCC.git"
+  },
+  "samples": {
+    "displayName": "Demo",
+    "description": "Demo using Kinematic Character Controller",
+    "path": "Samples~/Demo"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Lam Nguyen",
+    "email": "lamnd.bounce@gmail.com",
+    "url": "https://www.facebook.com/theycallmelam"
+  }
+}
