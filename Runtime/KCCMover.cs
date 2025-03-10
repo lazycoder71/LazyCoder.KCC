@@ -120,7 +120,7 @@ namespace LFramework.KCC
         {
             get
             {
-                return _internalTransientRotation;
+                return _internalTransientRotation.normalized;
             }
             private set
             {

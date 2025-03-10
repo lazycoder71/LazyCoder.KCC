@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace LFramework.KCC.Examples
 {
@@ -31,14 +32,13 @@ namespace LFramework.KCC.Examples
 
         private void Update()
         {
-
             KCCSystem.Simulate(Time.deltaTime, KCCSystem.CharacterMotors, KCCSystem.PhysicsMovers);
         }
 
         private void UpdateOnImages()
         {
             RenderOn.enabled = Camera.cullingMask == -1;
-            SimOn.enabled = Physics.autoSimulation;
+            SimOn.enabled = Physics.simulationMode == SimulationMode.FixedUpdate;
             InterpOn.enabled = KCCSystem.Settings.Interpolate;
         }
 
@@ -52,7 +52,7 @@ namespace LFramework.KCC.Examples
 
         public void ToggleRendering()
         {
-            if(Camera.cullingMask == -1)
+            if (Camera.cullingMask == -1)
             {
                 Camera.cullingMask = UIMask;
             }
@@ -65,7 +65,7 @@ namespace LFramework.KCC.Examples
 
         public void TogglePhysicsSim()
         {
-            Physics.autoSimulation = !Physics.autoSimulation;
+            Physics.simulationMode = Physics.simulationMode == SimulationMode.FixedUpdate ? SimulationMode.Script : SimulationMode.FixedUpdate;
             UpdateOnImages();
         }
 
