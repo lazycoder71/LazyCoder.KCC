@@ -18,10 +18,14 @@
     "url": "https://github.com/lazycoder71/LFramework.KCC.git"
   },
   "samples": [{
-    "displayName": "Demo",
+    "displayName": "Demo 01",
     "description": "Demo using Kinematic Character Controller",
-    "path": "Samples~/Demo"
-  }],
+    "path": "Samples~/Demo01"
+  },
+	"displayName": "Demo 02",
+    "description": "Demo using Kinematic Character Controller",
+    "path": "Samples~/Demo02"
+  ],
   "license": "MIT",
   "author": {
     "name": "Lam Nguyen",
