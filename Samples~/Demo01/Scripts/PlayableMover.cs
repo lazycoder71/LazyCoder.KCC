@@ -5,11 +5,11 @@ using UnityEngine;
 using System;
 using UnityEngine.Playables;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
-    public class PlayableMover : MonoBehaviour, IKCCControllerMover
+    public class PlayableMover : MonoBehaviour, IKccControllerMover
     {
-        public KCCMover Mover;
+        public KccMover Mover;
 
         public float Speed = 1f;
         public PlayableDirector Director;

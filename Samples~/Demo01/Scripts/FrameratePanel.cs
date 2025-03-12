@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public class FrameratePanel : MonoBehaviour
     {

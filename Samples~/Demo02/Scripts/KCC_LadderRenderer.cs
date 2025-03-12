@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace LFramework.KCC.Demo02
+namespace LFramework.Kcc.Demo02
 {
     [RequireComponent(typeof(KCC_Ladder))]
     public class KCC_LadderRenderer : MonoBehaviour

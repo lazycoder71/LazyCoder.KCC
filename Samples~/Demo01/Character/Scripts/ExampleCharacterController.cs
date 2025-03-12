@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public enum CharacterState
     {
@@ -37,9 +37,9 @@ namespace LFramework.KCC.Demo01
         TowardsGroundSlopeAndGravity,
     }
 
-    public class ExampleCharacterController : MonoBehaviour, IKCCControllerCharacter
+    public class ExampleCharacterController : MonoBehaviour, IKccControllerCharacter
     {
-        public KCCMotor Motor;
+        public KccMotor Motor;
 
         [Header("Stable Movement")]
         public float MaxStableMoveSpeed = 10f;

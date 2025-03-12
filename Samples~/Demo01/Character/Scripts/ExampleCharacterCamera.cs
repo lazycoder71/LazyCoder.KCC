@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public class ExampleCharacterCamera : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Vertx.Debugging;
 
-namespace LFramework.KCC.Demo02
+namespace LFramework.Kcc.Demo02
 {
     [SelectionBase]
     public class KCC_Ladder : MonoBase

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public class ExamplePlayer : MonoBehaviour
     {
@@ -42,7 +42,7 @@ namespace LFramework.KCC.Demo01
             // Handle rotating the camera along with physics movers
             if (CharacterCamera.RotateWithPhysicsMover && Character.Motor.AttachedRigidbody != null)
             {
-                CharacterCamera.PlanarDirection = Character.Motor.AttachedRigidbody.GetComponent<KCCMover>().RotationDeltaFromInterpolation * CharacterCamera.PlanarDirection;
+                CharacterCamera.PlanarDirection = Character.Motor.AttachedRigidbody.GetComponent<KccMover>().RotationDeltaFromInterpolation * CharacterCamera.PlanarDirection;
                 CharacterCamera.PlanarDirection = Vector3.ProjectOnPlane(CharacterCamera.PlanarDirection, Character.Motor.CharacterUp).normalized;
             }
 

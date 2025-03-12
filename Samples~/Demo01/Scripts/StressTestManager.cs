@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public class StressTestManager : MonoBehaviour
     {
@@ -22,24 +22,24 @@ namespace LFramework.KCC.Demo01
 
         private void Start()
         {
-            KCCSystem.EnsureCreation();
+            KccSystem.EnsureCreation();
             CountField.text = SpawnCount.ToString();
             UpdateOnImages();
 
-            KCCSystem.Settings.AutoSimulation = false;
-            KCCSystem.Settings.Interpolate = false;
+            KccSystem.Settings.AutoSimulation = false;
+            KccSystem.Settings.Interpolate = false;
         }
 
         private void Update()
         {
-            KCCSystem.Simulate(Time.deltaTime, KCCSystem.CharacterMotors, KCCSystem.PhysicsMovers);
+            KccSystem.Simulate(Time.deltaTime, KccSystem.CharacterMotors, KccSystem.PhysicsMovers);
         }
 
         private void UpdateOnImages()
         {
             RenderOn.enabled = Camera.cullingMask == -1;
             SimOn.enabled = Physics.simulationMode == SimulationMode.FixedUpdate;
-            InterpOn.enabled = KCCSystem.Settings.Interpolate;
+            InterpOn.enabled = KccSystem.Settings.Interpolate;
         }
 
         public void SetSpawnCount(string count)
@@ -71,7 +71,7 @@ namespace LFramework.KCC.Demo01
 
         public void ToggleInterpolation()
         {
-            KCCSystem.Settings.Interpolate = !KCCSystem.Settings.Interpolate;
+            KccSystem.Settings.Interpolate = !KccSystem.Settings.Interpolate;
             UpdateOnImages();
         }
 

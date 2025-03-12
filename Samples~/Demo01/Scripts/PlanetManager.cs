@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
-    public class PlanetManager : MonoBehaviour, IKCCControllerMover
+    public class PlanetManager : MonoBehaviour, IKccControllerMover
     {
-        public KCCMover PlanetMover;
+        public KccMover PlanetMover;
         public SphereCollider GravityField;
         public float GravityStrength = 10;
         public Vector3 OrbitAxis = Vector3.forward;

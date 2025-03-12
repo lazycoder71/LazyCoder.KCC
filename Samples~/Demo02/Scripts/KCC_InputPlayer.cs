@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LFramework.KCC.Demo02
+namespace LFramework.Kcc.Demo02
 {
     public class KCC_InputPlayer
     {

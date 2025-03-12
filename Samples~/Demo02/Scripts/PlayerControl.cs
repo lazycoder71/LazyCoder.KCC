@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-namespace LFramework.KCC.Demo02
+namespace LFramework.Kcc.Demo02
 {
     public class PlayerControl : MonoBase
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public class BuildManager : MonoBehaviour
     {

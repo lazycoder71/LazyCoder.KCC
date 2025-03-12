@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
     public class PauseStateHandler
     {
@@ -13,7 +13,7 @@ namespace LFramework.KCC.Demo01
 
         private static void HandlePauseStateChange(PauseState state)
         {
-            foreach (KCCMotor motor in KCCSystem.CharacterMotors)
+            foreach (KccMotor motor in KccSystem.CharacterMotors)
             {
                 motor.SetPositionAndRotation(motor.Transform.position, motor.Transform.rotation, true);
             }

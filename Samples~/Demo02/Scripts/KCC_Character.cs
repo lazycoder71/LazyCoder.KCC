@@ -5,9 +5,9 @@ using Vertx.Debugging;
 using System;
 using UnityEngine.SocialPlatforms;
 
-namespace LFramework.KCC.Demo02
+namespace LFramework.Kcc.Demo02
 {
-    public class KCC_Character : MonoBase, IKCCControllerCharacter
+    public class KCC_Character : MonoBase, IKccControllerCharacter
     {
         [System.Serializable]
         public enum OrientationBonusMethod
@@ -25,7 +25,7 @@ namespace LFramework.KCC.Demo02
         }
 
         [Title("Reference")]
-        [SerializeField] private KCCMotor _motor;
+        [SerializeField] private KccMotor _motor;
 
         [Title("Ground Movement")]
         [SerializeField] private float _groundMoveSpeedMax = 4.5f;
@@ -220,7 +220,7 @@ namespace LFramework.KCC.Demo02
             }
         }
 
-        void IKCCControllerCharacter.BeforeCharacterUpdate(float deltaTime)
+        void IKccControllerCharacter.BeforeCharacterUpdate(float deltaTime)
         {
             switch (_stateMachine.CurrentState)
             {
@@ -231,7 +231,7 @@ namespace LFramework.KCC.Demo02
             }
         }
 
-        void IKCCControllerCharacter.UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+        void IKccControllerCharacter.UpdateRotation(ref Quaternion currentRotation, float deltaTime)
         {
             Vector3 lookVector = Vector3.zero;
 
@@ -289,7 +289,7 @@ namespace LFramework.KCC.Demo02
             }
         }
 
-        void IKCCControllerCharacter.UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
+        void IKccControllerCharacter.UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
             switch (_stateMachine.CurrentState)
             {
@@ -421,7 +421,7 @@ namespace LFramework.KCC.Demo02
             }
         }
 
-        void IKCCControllerCharacter.AfterCharacterUpdate(float deltaTime)
+        void IKccControllerCharacter.AfterCharacterUpdate(float deltaTime)
         {
             switch (_stateMachine.CurrentState)
             {
@@ -474,7 +474,7 @@ namespace LFramework.KCC.Demo02
             //    _animator.SetVelocityZ(Mathf.InverseLerp(0, _groundMoveSpeedMax, _moveControlVelocity.magnitude));
         }
 
-        void IKCCControllerCharacter.PostGroundingUpdate(float deltaTime)
+        void IKccControllerCharacter.PostGroundingUpdate(float deltaTime)
         {
             /*
             // Handle landing and leaving ground
@@ -489,7 +489,7 @@ namespace LFramework.KCC.Demo02
             */
         }
 
-        bool IKCCControllerCharacter.IsColliderValidForCollisions(Collider coll)
+        bool IKccControllerCharacter.IsColliderValidForCollisions(Collider coll)
         {
             if (_ignoredColliders.Length == 0)
                 return true;
@@ -500,19 +500,19 @@ namespace LFramework.KCC.Demo02
             return true;
         }
 
-        void IKCCControllerCharacter.OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        void IKccControllerCharacter.OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        void IKCCControllerCharacter.OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        void IKccControllerCharacter.OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        void IKCCControllerCharacter.ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+        void IKccControllerCharacter.ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        void IKCCControllerCharacter.OnDiscreteCollisionDetected(Collider hitCollider)
+        void IKccControllerCharacter.OnDiscreteCollisionDetected(Collider hitCollider)
         {
         }
 

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.KCC.Demo01
+namespace LFramework.Kcc.Demo01
 {
-    public class ExampleMovingPlatform : MonoBehaviour, IKCCControllerMover
+    public class ExampleMovingPlatform : MonoBehaviour, IKccControllerMover
     {
-        public KCCMover Mover;
+        public KccMover Mover;
 
         public Vector3 TranslationAxis = Vector3.right;
         public float TranslationPeriod = 10;
