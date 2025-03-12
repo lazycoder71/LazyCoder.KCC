@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace LFramework.KCC
+namespace LFramework.Kcc
 {
     [CreateAssetMenu]
-    public class KCCSettings : ScriptableObject
+    public class KccSettings : ScriptableObject
     {
         /// <summary>
         /// Determines if the system simulates automatically.

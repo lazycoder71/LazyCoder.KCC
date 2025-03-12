@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace LFramework.KCC
+namespace LFramework.Kcc
 {
     /// <summary>
     /// Represents the entire state of a PhysicsMover that is pertinent for simulation.
@@ -22,7 +22,7 @@ namespace LFramework.KCC
     /// proper interaction with characters
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class KCCMover : MonoBehaviour
+    public class KccMover : MonoBehaviour
     {
         /// <summary>
         /// The mover's Rigidbody
@@ -39,7 +39,7 @@ namespace LFramework.KCC
         /// Index of this motor in KinematicCharacterSystem arrays
         /// </summary>
         [NonSerialized]
-        public IKCCControllerMover MoverController;
+        public IKccControllerMover MoverController;
         /// <summary>
         /// Remembers latest position in interpolation
         /// </summary>
@@ -155,13 +155,13 @@ namespace LFramework.KCC
 
         private void OnEnable()
         {
-            KCCSystem.EnsureCreation();
-            KCCSystem.RegisterPhysicsMover(this);
+            KccSystem.EnsureCreation();
+            KccSystem.RegisterPhysicsMover(this);
         }
 
         private void OnDisable()
         {
-            KCCSystem.UnregisterPhysicsMover(this);
+            KccSystem.UnregisterPhysicsMover(this);
         }
 
         private void Awake()

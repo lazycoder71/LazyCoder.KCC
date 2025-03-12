@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LFramework.KCC
+namespace LFramework.Kcc
 {
-    public interface IKCCControllerCharacter
+    public interface IKccControllerCharacter
     {
         /// <summary>
         /// This is called when the motor wants to know what its rotation should be right now

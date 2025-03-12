@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.KCC
+namespace LFramework.Kcc
 {
     /// <summary>
     /// The system that manages the simulation of KinematicCharacterMotor and PhysicsMover
     /// </summary>
     [DefaultExecutionOrder(-100)]
-    public class KCCSystem : MonoBehaviour
+    public class KccSystem : MonoBehaviour
     {
-        private static KCCSystem _instance;
+        private static KccSystem _instance;
 
-        public static List<KCCMotor> CharacterMotors = new List<KCCMotor>();
-        public static List<KCCMover> PhysicsMovers = new List<KCCMover>();
+        public static List<KccMotor> CharacterMotors = new List<KccMotor>();
+        public static List<KccMover> PhysicsMovers = new List<KccMover>();
 
         private static float _lastCustomInterpolationStartTime = -1f;
         private static float _lastCustomInterpolationDeltaTime = -1f;
 
-        public static KCCSettings Settings;
+        public static KccSettings Settings;
 
         /// <summary>
         /// Creates a KinematicCharacterSystem instance if there isn't already one
@@ -27,12 +27,12 @@ namespace LFramework.KCC
             if (_instance == null)
             {
                 GameObject systemGameObject = new GameObject("KinematicCharacterSystem");
-                _instance = systemGameObject.AddComponent<KCCSystem>();
+                _instance = systemGameObject.AddComponent<KccSystem>();
 
                 systemGameObject.hideFlags = HideFlags.NotEditable;
                 _instance.hideFlags = HideFlags.NotEditable;
 
-                Settings = ScriptableObject.CreateInstance<KCCSettings>();
+                Settings = ScriptableObject.CreateInstance<KccSettings>();
 
                 GameObject.DontDestroyOnLoad(systemGameObject);
             }
@@ -42,7 +42,7 @@ namespace LFramework.KCC
         /// Gets the KinematicCharacterSystem instance if any
         /// </summary>
         /// <returns></returns>
-        public static KCCSystem GetInstance()
+        public static KccSystem GetInstance()
         {
             return _instance;
         }
@@ -63,7 +63,7 @@ namespace LFramework.KCC
         /// <summary>
         /// Registers a KinematicCharacterMotor into the system
         /// </summary>
-        public static void RegisterCharacterMotor(KCCMotor motor)
+        public static void RegisterCharacterMotor(KccMotor motor)
         {
             CharacterMotors.Add(motor);
         }
@@ -71,7 +71,7 @@ namespace LFramework.KCC
         /// <summary>
         /// Unregisters a KinematicCharacterMotor from the system
         /// </summary>
-        public static void UnregisterCharacterMotor(KCCMotor motor)
+        public static void UnregisterCharacterMotor(KccMotor motor)
         {
             CharacterMotors.Remove(motor);
         }
@@ -92,7 +92,7 @@ namespace LFramework.KCC
         /// <summary>
         /// Registers a PhysicsMover into the system
         /// </summary>
-        public static void RegisterPhysicsMover(KCCMover mover)
+        public static void RegisterPhysicsMover(KccMover mover)
         {
             PhysicsMovers.Add(mover);
 
@@ -102,7 +102,7 @@ namespace LFramework.KCC
         /// <summary>
         /// Unregisters a PhysicsMover from the system
         /// </summary>
-        public static void UnregisterPhysicsMover(KCCMover mover)
+        public static void UnregisterPhysicsMover(KccMover mover)
         {
             PhysicsMovers.Remove(mover);
         }
@@ -154,7 +154,7 @@ namespace LFramework.KCC
             // Save pre-simulation poses and place transform at transient pose
             for (int i = 0; i < CharacterMotors.Count; i++)
             {
-                KCCMotor motor = CharacterMotors[i];
+                KccMotor motor = CharacterMotors[i];
 
                 motor.InitialTickPosition = motor.TransientPosition;
                 motor.InitialTickRotation = motor.TransientRotation;
@@ -164,7 +164,7 @@ namespace LFramework.KCC
 
             for (int i = 0; i < PhysicsMovers.Count; i++)
             {
-                KCCMover mover = PhysicsMovers[i];
+                KccMover mover = PhysicsMovers[i];
 
                 mover.InitialTickPosition = mover.TransientPosition;
                 mover.InitialTickRotation = mover.TransientRotation;
@@ -178,7 +178,7 @@ namespace LFramework.KCC
         /// <summary>
         /// Ticks characters and/or movers
         /// </summary>
-        public static void Simulate(float deltaTime, List<KCCMotor> motors, List<KCCMover> movers)
+        public static void Simulate(float deltaTime, List<KccMotor> motors, List<KccMover> movers)
         {
             int characterMotorsCount = motors.Count;
             int physicsMoversCount = movers.Count;
@@ -199,7 +199,7 @@ namespace LFramework.KCC
             // Simulate PhysicsMover displacement
             for (int i = 0; i < physicsMoversCount; i++)
             {
-                KCCMover mover = movers[i];
+                KccMover mover = movers[i];
 
                 mover.Transform.SetPositionAndRotation(mover.TransientPosition, mover.TransientRotation);
                 mover.Rigidbody.position = mover.TransientPosition;
@@ -209,7 +209,7 @@ namespace LFramework.KCC
             // Character controller update phase 2 and move
             for (int i = 0; i < characterMotorsCount; i++)
             {
-                KCCMotor motor = motors[i];
+                KccMotor motor = motors[i];
 
                 motor.UpdatePhase2(deltaTime);
 
@@ -229,14 +229,14 @@ namespace LFramework.KCC
             // Return interpolated roots to their initial poses
             for (int i = 0; i < CharacterMotors.Count; i++)
             {
-                KCCMotor motor = CharacterMotors[i];
+                KccMotor motor = CharacterMotors[i];
 
                 motor.Transform.SetPositionAndRotation(motor.InitialTickPosition, motor.InitialTickRotation);
             }
 
             for (int i = 0; i < PhysicsMovers.Count; i++)
             {
-                KCCMover mover = PhysicsMovers[i];
+                KccMover mover = PhysicsMovers[i];
 
                 if (mover.MoveWithPhysics)
                 {
@@ -264,7 +264,7 @@ namespace LFramework.KCC
             // Handle characters interpolation
             for (int i = 0; i < CharacterMotors.Count; i++)
             {
-                KCCMotor motor = CharacterMotors[i];
+                KccMotor motor = CharacterMotors[i];
 
                 motor.Transform.SetPositionAndRotation(
                     Vector3.Lerp(motor.InitialTickPosition, motor.TransientPosition, interpolationFactor),
@@ -274,7 +274,7 @@ namespace LFramework.KCC
             // Handle PhysicsMovers interpolation
             for (int i = 0; i < PhysicsMovers.Count; i++)
             {
-                KCCMover mover = PhysicsMovers[i];
+                KccMover mover = PhysicsMovers[i];
                 
                 mover.Transform.SetPositionAndRotation(
                     Vector3.Lerp(mover.InitialTickPosition, mover.TransientPosition, interpolationFactor),

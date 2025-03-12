@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace LFramework.KCC
+namespace LFramework.Kcc
 {
-    public interface IKCCControllerMover
+    public interface IKccControllerMover
     {
         /// <summary>
         /// This is called to let you tell the PhysicsMover where it should be right now

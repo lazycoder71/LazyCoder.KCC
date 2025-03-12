@@ -1,6 +1,6 @@
 {
-    "name": "LFramework.KCC",
-    "rootNamespace": "LFramework.KCC",
+    "name": "LFramework.Kcc",
+    "rootNamespace": "LFramework.Kcc",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
