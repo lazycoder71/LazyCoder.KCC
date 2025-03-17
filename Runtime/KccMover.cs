@@ -39,7 +39,7 @@ namespace LFramework.Kcc
         /// Index of this motor in KinematicCharacterSystem arrays
         /// </summary>
         [NonSerialized]
-        public IKccControllerMover MoverController;
+        public IKccMover MoverController;
         /// <summary>
         /// Remembers latest position in interpolation
         /// </summary>

@@ -2,7 +2,7 @@
 
 namespace LFramework.Kcc
 {
-    public interface IKccControllerMover
+    public interface IKccMover
     {
         /// <summary>
         /// This is called to let you tell the PhysicsMover where it should be right now
