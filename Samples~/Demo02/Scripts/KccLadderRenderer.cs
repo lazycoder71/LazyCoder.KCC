@@ -1,10 +1,10 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace LFramework.Kcc.Demo02
+namespace Game
 {
-    [RequireComponent(typeof(KCC_Ladder))]
-    public class KCC_LadderRenderer : MonoBehaviour
+    [RequireComponent(typeof(KccLadder))]
+    public class KccLadderRenderer : MonoBehaviour
     {
         [Title("Reference")]
         [SerializeField] private Transform _modelRoot;
@@ -18,7 +18,7 @@ namespace LFramework.Kcc.Demo02
         [Button]
         public void UpdateRenderer()
         {
-            float height = GetComponent<KCC_Ladder>().Height;
+            float height = GetComponent<KccLadder>().Height;
 
             BoxCollider collider = GetComponent<BoxCollider>();
 

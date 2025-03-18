@@ -4,10 +4,12 @@ using System.Linq;
 using Vertx.Debugging;
 using System;
 using UnityEngine.SocialPlatforms;
+using LFramework;
+using LFramework.Kcc;
 
-namespace LFramework.Kcc.Demo02
+namespace Game
 {
-    public class KCC_Character : MonoBase, IKccMotor
+    public class KccCharacterBackup : MonoBase, IKccMotor
     {
         [System.Serializable]
         public enum OrientationBonusMethod
@@ -75,7 +77,7 @@ namespace LFramework.Kcc.Demo02
         private Vector3 _moveControlVelocity;
 
         // Current ladder
-        private KCC_Ladder _ladder;
+        private KccLadder _ladder;
         private Vector3 _ladderClimbDirection;
         private float _ladderClimbIgnoreTime;
 
@@ -120,7 +122,7 @@ namespace LFramework.Kcc.Demo02
             if (hitInfo.collider == null)
                 return;
 
-            _ladder = hitInfo.collider.GetComponent<KCC_Ladder>();
+            _ladder = hitInfo.collider.GetComponent<KccLadder>();
 
             // There is no ladder component
             if (_ladder == null)
@@ -188,7 +190,7 @@ namespace LFramework.Kcc.Demo02
         /// <summary>
         /// This is called every frame by Player in order to tell the character what its inputs are
         /// </summary>
-        public void SetInputs(ref KCC_InputPlayer input)
+        public void SetInputs(ref KccInputPlayer input)
         {
             _moveInputVector = input.MoveVector;
             _lookInputVector = input.LookVector;
@@ -204,7 +206,7 @@ namespace LFramework.Kcc.Demo02
         /// <summary>
         /// This is called every frame by the AI script in order to tell the character what its inputs are
         /// </summary>
-        public void SetInputs(ref KCC_InputAI inputs)
+        public void SetInputs(ref KccInputAI inputs)
         {
             _moveInputVector = inputs.MoveVector;
             _lookInputVector = inputs.LookVector;

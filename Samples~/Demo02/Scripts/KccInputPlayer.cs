@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace LFramework.Kcc.Demo02
+namespace Game
 {
-    public class KCC_InputAI
+    public class KccInputPlayer
     {
         public Vector3 MoveVector;
         public Vector3 LookVector;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2cb7dd7f88dfcac4c9abfac4f47b3bba
+guid: 03fa146a6b47523438cd9d8a08ac3c46
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_COSTUME
-    second: {fileID: 2100000, guid: 3ffc7184f3a5f944181f0b785a495c73, type: 2}
+    second: {fileID: 2100000, guid: 3e58a2a3c1a1eed4bac29e1df8e1e4c3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -21,8 +21,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -41,7 +39,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1

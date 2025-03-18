@@ -1,11 +1,10 @@
 using LFramework;
+using LFramework.View;
 using Sirenix.OdinInspector;
-using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-namespace LFramework.Kcc.Demo02
+namespace Game
 {
     public class PlayerControl : MonoBase
     {
@@ -17,31 +16,81 @@ namespace LFramework.Kcc.Demo02
         }
 
         [Title("Reference")]
-        [SerializeField] private KCC_Character _character;
+        [SerializeField] private KccCharacter _character;
 
         [Title("Config")]
         [SerializeField] private OrientationMethod _orientationMethod = OrientationMethod.TowardsMovement;
+        [SerializeField] private GameObject _gui;
+
+        [Space]
+
+        [Required]
+        [SerializeField] private InputActionReference _inputActionReferenceMove;
+
+        [Required]
+        [SerializeField] private InputActionReference _inputActionReferenceJump;
 
         private Camera _camera;
 
-        private KCC_InputPlayer _inputKCC = new KCC_InputPlayer();
+        private KccInputPlayer _inputKCC = new KccInputPlayer();
+
+        private Vector3 _inputMove;
+
+        private GameObject _objGui;
 
         #region MonoBehaviour
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _inputActionReferenceJump.action.started += InputActionReference_Jump;
+            _inputActionReferenceJump.action.performed += InputActionReference_Jump;
+            _inputActionReferenceJump.action.canceled += InputActionReference_Jump;
+
+            _inputActionReferenceMove.action.started += InputActionReference_Move;
+            _inputActionReferenceMove.action.performed += InputActionReference_Move;
+            _inputActionReferenceMove.action.canceled += InputActionReference_Move;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            _inputActionReferenceJump.action.started -= InputActionReference_Jump;
+            _inputActionReferenceJump.action.performed -= InputActionReference_Jump;
+            _inputActionReferenceJump.action.canceled -= InputActionReference_Jump;
+
+            _inputActionReferenceMove.action.started -= InputActionReference_Move;
+            _inputActionReferenceMove.action.performed -= InputActionReference_Move;
+            _inputActionReferenceMove.action.canceled -= InputActionReference_Move;
+        }
 
         protected override void Start()
         {
             base.Start();
 
-            _camera = Camera.main;
+            _objGui = _gui.Create(ViewContainer.Instance.TransformCached, false);
+        }
+
+        private void OnDestroy()
+        {
+            if (_objGui != null)
+                Destroy(_objGui);
         }
 
         protected override void Tick()
         {
+            if (_camera == null)
+                _camera = Camera.main;
+
             // Adjust input by current camera view
             AdjustInputByCameraView(_camera.transform, _character.TransformCached.up);
 
             // Apply inputs to character
             _character.SetInputs(ref _inputKCC);
+
+            _inputKCC.Jump = false;
         }
 
         #endregion
@@ -57,7 +106,7 @@ namespace LFramework.Kcc.Demo02
             Quaternion cameraPlanarRotation = Quaternion.LookRotation(cameraPlanarDirection, characterUp);
 
             // Move and look inputs
-            _inputKCC.MoveVector = cameraPlanarRotation * _inputKCC.MoveVector;
+            _inputKCC.MoveVector = cameraPlanarRotation * _inputMove;
 
             switch (_orientationMethod)
             {
@@ -70,15 +119,19 @@ namespace LFramework.Kcc.Demo02
             }
         }
 
-        public void Input_Move(InputAction.CallbackContext context)
+        public void InputActionReference_Move(InputAction.CallbackContext context)
         {
             Vector2 moveInput = context.ReadValue<Vector2>();
 
-            _inputKCC.MoveVector.x = moveInput.x;
-            _inputKCC.MoveVector.z = moveInput.y;
+            _inputMove.x = moveInput.x;
+            _inputMove.z = moveInput.y;
+            _inputMove.y = 0f;
+
+            // Clamp input
+            _inputMove = Vector3.ClampMagnitude(_inputMove, 1f);
         }
 
-        public void Input_Jump(InputAction.CallbackContext context)
+        public void InputActionReference_Jump(InputAction.CallbackContext context)
         {
             _inputKCC.Jump = context.ReadValueAsButton();
         }

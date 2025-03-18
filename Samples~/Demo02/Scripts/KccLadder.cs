@@ -1,17 +1,25 @@
+using LFramework;
 using Sirenix.OdinInspector;
 using System.Linq;
 using UnityEngine;
 using Vertx.Debugging;
 
-namespace LFramework.Kcc.Demo02
+namespace Game
 {
     [SelectionBase]
-    public class KCC_Ladder : MonoBase
+    public class KccLadder : MonoBase
     {
         [Title("Config")]
         [SerializeField] private float _height;
 
+        private BoxCollider _boxCollider;
+
+        public BoxCollider BoxCollider { get { if (_boxCollider == null) _boxCollider = GetComponent<BoxCollider>(); return _boxCollider; } }
+
         public float Height { get { return _height; } }
+
+        public Vector3 TopPosition { get { return TransformCached.TransformPoint(Vector3.up * _height); } }
+        public Vector3 BottomPosition { get { return TransformCached.position; } }
 
 #if UNITY_EDITOR
 
@@ -25,7 +33,7 @@ namespace LFramework.Kcc.Demo02
             if (Application.isPlaying || UnityEditor.Selection.objects == null || !UnityEditor.Selection.objects.Contains(gameObject))
                 return;
 
-            KCC_LadderRenderer renderer = GetComponent<KCC_LadderRenderer>();
+            KccLadderRenderer renderer = GetComponent<KccLadderRenderer>();
 
             if (renderer != null)
                 renderer.UpdateRenderer();
