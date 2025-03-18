@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms;
 
 namespace LFramework.Kcc.Demo02
 {
-    public class KCC_Character : MonoBase, IKccControllerCharacter
+    public class KCC_Character : MonoBase, IKccMotor
     {
         [System.Serializable]
         public enum OrientationBonusMethod
@@ -220,7 +220,7 @@ namespace LFramework.Kcc.Demo02
             }
         }
 
-        void IKccControllerCharacter.BeforeCharacterUpdate(float deltaTime)
+        void IKccMotor.BeforeCharacterUpdate(float deltaTime)
         {
             switch (_stateMachine.CurrentState)
             {
@@ -231,7 +231,7 @@ namespace LFramework.Kcc.Demo02
             }
         }
 
-        void IKccControllerCharacter.UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+        void IKccMotor.UpdateRotation(ref Quaternion currentRotation, float deltaTime)
         {
             Vector3 lookVector = Vector3.zero;
 
@@ -289,7 +289,7 @@ namespace LFramework.Kcc.Demo02
             }
         }
 
-        void IKccControllerCharacter.UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
+        void IKccMotor.UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
             switch (_stateMachine.CurrentState)
             {
@@ -421,7 +421,7 @@ namespace LFramework.Kcc.Demo02
             }
         }
 
-        void IKccControllerCharacter.AfterCharacterUpdate(float deltaTime)
+        void IKccMotor.AfterCharacterUpdate(float deltaTime)
         {
             switch (_stateMachine.CurrentState)
             {
@@ -474,7 +474,7 @@ namespace LFramework.Kcc.Demo02
             //    _animator.SetVelocityZ(Mathf.InverseLerp(0, _groundMoveSpeedMax, _moveControlVelocity.magnitude));
         }
 
-        void IKccControllerCharacter.PostGroundingUpdate(float deltaTime)
+        void IKccMotor.PostGroundingUpdate(float deltaTime)
         {
             /*
             // Handle landing and leaving ground
@@ -489,7 +489,7 @@ namespace LFramework.Kcc.Demo02
             */
         }
 
-        bool IKccControllerCharacter.IsColliderValidForCollisions(Collider coll)
+        bool IKccMotor.IsColliderValidForCollisions(Collider coll)
         {
             if (_ignoredColliders.Length == 0)
                 return true;
@@ -500,19 +500,19 @@ namespace LFramework.Kcc.Demo02
             return true;
         }
 
-        void IKccControllerCharacter.OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        void IKccMotor.OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        void IKccControllerCharacter.OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        void IKccMotor.OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        void IKccControllerCharacter.ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+        void IKccMotor.ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        void IKccControllerCharacter.OnDiscreteCollisionDetected(Collider hitCollider)
+        void IKccMotor.OnDiscreteCollisionDetected(Collider hitCollider)
         {
         }
 

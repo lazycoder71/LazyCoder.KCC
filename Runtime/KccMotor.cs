@@ -424,7 +424,7 @@ namespace LFramework.Kcc
         /// The motor's assigned controller
         /// </summary>
         [NonSerialized]
-        public IKccControllerCharacter CharacterController;
+        public IKccMotor CharacterController;
         /// <summary>
         /// Did the motor's last swept collision detection find a ground?
         /// </summary>

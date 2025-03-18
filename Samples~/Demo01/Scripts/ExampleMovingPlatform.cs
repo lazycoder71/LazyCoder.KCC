@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LFramework.Kcc.Demo01
 {
-    public class ExampleMovingPlatform : MonoBehaviour, IKccControllerMover
+    public class ExampleMovingPlatform : MonoBehaviour, IKccMover
     {
         public KccMover Mover;
 

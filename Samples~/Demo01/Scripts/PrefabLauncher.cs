@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace LFramework.Kcc.Demo01
 {
@@ -8,15 +7,23 @@ namespace LFramework.Kcc.Demo01
     {
         public Rigidbody ToLaunch;
         public float Force;
+        public InputActionReference _inputLaunch;
 
-        void Update()
+        private void OnEnable()
         {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                Rigidbody inst = Instantiate(ToLaunch, transform.position, transform.rotation);
-                inst.AddForce(transform.forward * Force, ForceMode.VelocityChange);
-                Destroy(inst.gameObject, 8f);
-            }
+            _inputLaunch.action.started += InputLanch_Started;
+        }
+
+        private void OnDisable()
+        {
+            _inputLaunch.action.started -= InputLanch_Started;
+        }
+
+        private void InputLanch_Started(InputAction.CallbackContext obj)
+        {
+            Rigidbody inst = Instantiate(ToLaunch, transform.position, transform.rotation);
+            inst.AddForce(transform.forward * Force, ForceMode.VelocityChange);
+            Destroy(inst.gameObject, 8f);
         }
     }
 }

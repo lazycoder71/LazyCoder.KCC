@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 
 namespace LFramework.Kcc.Demo01
 {
-    public class PlayableMover : MonoBehaviour, IKccControllerMover
+    public class PlayableMover : MonoBehaviour, IKccMover
     {
         public KccMover Mover;
 

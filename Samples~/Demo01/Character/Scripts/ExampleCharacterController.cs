@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Vertx.Debugging;
 
 namespace LFramework.Kcc.Demo01
 {
@@ -37,7 +38,7 @@ namespace LFramework.Kcc.Demo01
         TowardsGroundSlopeAndGravity,
     }
 
-    public class ExampleCharacterController : MonoBehaviour, IKccControllerCharacter
+    public class ExampleCharacterController : MonoBehaviour, IKccMotor
     {
         public KccMotor Motor;
 
@@ -324,6 +325,8 @@ namespace LFramework.Kcc.Demo01
                                         addedVelocity = Vector3.ProjectOnPlane(addedVelocity, currentVelocityOnInputsPlane.normalized);
                                     }
                                 }
+
+                                D.raw(new Shape.Text(transform.position, Motor.GroundingStatus.FoundAnyGround), Motor.GroundingStatus.FoundAnyGround ? Color.red : Color.white);
 
                                 // Prevent air-climbing sloped walls
                                 if (Motor.GroundingStatus.FoundAnyGround)

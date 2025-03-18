@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LFramework.Kcc.Demo01
 {
-    public class PlanetManager : MonoBehaviour, IKccControllerMover
+    public class PlanetManager : MonoBehaviour, IKccMover
     {
         public KccMover PlanetMover;
         public SphereCollider GravityField;

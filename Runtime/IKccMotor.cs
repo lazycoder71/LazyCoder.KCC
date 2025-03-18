@@ -2,7 +2,7 @@
 
 namespace LFramework.Kcc
 {
-    public interface IKccControllerCharacter
+    public interface IKccMotor
     {
         /// <summary>
         /// This is called when the motor wants to know what its rotation should be right now

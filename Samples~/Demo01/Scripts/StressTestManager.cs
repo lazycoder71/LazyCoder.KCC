@@ -32,7 +32,7 @@ namespace LFramework.Kcc.Demo01
 
         private void Update()
         {
-            KccSystem.Simulate(Time.deltaTime, KccSystem.CharacterMotors, KccSystem.PhysicsMovers);
+            KccSystem.Simulate(Time.deltaTime, KccSystem.Motors, KccSystem.Movers);
         }
 
         private void UpdateOnImages()
