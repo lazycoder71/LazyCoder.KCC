@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LFramework.Kcc
+namespace LazyCoder.Kcc
 {
     [CreateAssetMenu]
     public class KccSettings : ScriptableObject

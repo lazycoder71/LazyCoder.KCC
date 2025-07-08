@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.Kcc
+namespace LazyCoder.Kcc
 {
     public enum RigidbodyInteractionType
     {

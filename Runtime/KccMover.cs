@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace LFramework.Kcc
+namespace LazyCoder.Kcc
 {
     /// <summary>
     /// Represents the entire state of a PhysicsMover that is pertinent for simulation.

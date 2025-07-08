@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LFramework.Kcc
+namespace LazyCoder.Kcc
 {
     public interface IKccMover
     {

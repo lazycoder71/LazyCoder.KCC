@@ -1,6 +1,6 @@
 {
-    "name": "LFramework.Kcc",
-    "rootNamespace": "LFramework.Kcc",
+    "name": "LazyCoder.Kcc",
+    "rootNamespace": "LazyCoder.Kcc",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

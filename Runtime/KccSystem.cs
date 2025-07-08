@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace LFramework.Kcc
+namespace LazyCoder.Kcc
 {
     /// <summary>
     /// The system that manages the simulation of KccMotor and KccMover
