@@ -22,10 +22,11 @@
     "description": "Demo using Kinematic Character Controller",
     "path": "Samples~/Demo01"
   },
+  {
 	"displayName": "Demo 02",
     "description": "Demo using Kinematic Character Controller",
     "path": "Samples~/Demo02"
-  ],
+  }],
   "license": "MIT",
   "author": {
     "name": "Lam Nguyen",
