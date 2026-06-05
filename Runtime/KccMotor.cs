@@ -1,6 +1,6 @@
-﻿using Sirenix.OdinInspector;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LazyCoder.Kcc
@@ -1866,10 +1866,10 @@ namespace LazyCoder.Kcc
                         }
                         else if (!hitBodyIsDynamic)
                         {
-                            KccMover physicsMover = bodyHit.Rigidbody.GetComponent<KccMover>();
-                            if(physicsMover)
+                            KccMover kccMover = bodyHit.Rigidbody.GetComponent<KccMover>();
+                            if(kccMover)
                             {
-                                hitBodyVelocity = physicsMover.Velocity;
+                                hitBodyVelocity = kccMover.Velocity;
                             }
                         }
 
@@ -2294,11 +2294,11 @@ namespace LazyCoder.Kcc
                 angularVelocity = interactiveRigidbody.angularVelocity;
                 if(interactiveRigidbody.isKinematic)
                 {
-                    KccMover physicsMover = interactiveRigidbody.GetComponent<KccMover>();
-                    if (physicsMover)
+                    KccMover kccMover = interactiveRigidbody.GetComponent<KccMover>();
+                    if (kccMover)
                     {
-                        linearVelocity = physicsMover.Velocity;
-                        angularVelocity = physicsMover.AngularVelocity;
+                        linearVelocity = kccMover.Velocity;
+                        angularVelocity = kccMover.AngularVelocity;
                     }
                 }
 

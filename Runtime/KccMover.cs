@@ -1,5 +1,5 @@
-﻿using Sirenix.OdinInspector;
-using System;
+﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LazyCoder.Kcc
@@ -120,7 +120,7 @@ namespace LazyCoder.Kcc
         {
             get
             {
-                return _internalTransientRotation.normalized;
+                return _internalTransientRotation;
             }
             private set
             {
