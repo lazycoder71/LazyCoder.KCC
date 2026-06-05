@@ -19,9 +19,9 @@
   },
   "samples": [
     {
-      "displayName": "Demo 01",
+      "displayName": "Demo",
       "description": "Demo using Kinematic Character Controller",
-      "path": "Samples~/Demo01"
+      "path": "Samples~/Demo"
     }
   ],
   "license": "MIT",

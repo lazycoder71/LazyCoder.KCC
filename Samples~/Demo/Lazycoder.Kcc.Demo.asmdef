@@ -1,0 +1,17 @@
+{
+    "name": "Lazycoder.Kcc.Demo",
+    "rootNamespace": "Lazycoder.Kcc.Demo",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:7e9f8b6a6c0186949bc318c8828a85f9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
